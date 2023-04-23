@@ -35,7 +35,7 @@ export default function DiceMiner() {
   function updatePlayer(
     playerIndex: number,
     field: PlayerKeys,
-    value: string | number
+    value: string | number | null
   ) {
     setPlayers(
       players.map((player, index) => {

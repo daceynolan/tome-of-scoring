@@ -22,11 +22,19 @@ export default function ScoringRow({ fieldType, field }: Props) {
             value={players[columnIndex][field]}
             placeholder={fieldType === "text" ? "Name" : undefined}
             onChange={(e) => {
-              updatePlayer(
-                columnIndex,
-                field,
-                fieldType === "number" ? Number(e.target.value) : e.target.value
-              );
+              const value = e.target.value;
+
+              if (value) {
+                updatePlayer(
+                  columnIndex,
+                  field,
+                  fieldType === "number"
+                    ? Number(e.target.value)
+                    : e.target.value
+                );
+              } else {
+                updatePlayer(columnIndex, field, null);
+              }
             }}
           />
         );

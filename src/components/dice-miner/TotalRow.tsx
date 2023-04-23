@@ -36,7 +36,7 @@ export default function TotalRow({ roundsToSum, borderClassName }: Props) {
         const player = players[columnIndex];
         const total = sum(
           fieldsToSum.map((field) => {
-            return player[field];
+            return player[field] || 0;
           })
         );
 

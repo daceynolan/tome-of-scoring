@@ -18,6 +18,6 @@ export type MinerContextType = {
   updatePlayer: (
     playerIndex: number,
     field: PlayerKeys,
-    value: number | string
+    value: number | string | null
   ) => void;
 };
