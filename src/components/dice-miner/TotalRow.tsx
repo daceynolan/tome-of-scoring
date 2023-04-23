@@ -3,9 +3,11 @@ import { useContext } from "react";
 
 import BaseRow from "./BaseRow";
 import { MinerContext } from "./DiceMiner";
+import Text from "./Text";
 import { PlayerKeys } from "./types";
 
 type Props = {
+  borderClassName?: string;
   roundsToSum: number[];
 };
 
@@ -23,12 +25,13 @@ function getFieldsToSum(roundsToSum: number[]) {
   return fields;
 }
 
-export default function TotalRow({ roundsToSum }: Props) {
+export default function TotalRow({ roundsToSum, borderClassName }: Props) {
   const { players } = useContext(MinerContext);
   const fieldsToSum = getFieldsToSum(roundsToSum);
 
   return (
     <BaseRow
+      cellClassName={borderClassName}
       cellRenderer={(columnIndex) => {
         const player = players[columnIndex];
         const total = sum(
@@ -38,9 +41,9 @@ export default function TotalRow({ roundsToSum }: Props) {
         );
 
         return (
-          <div className="pr-4 flex items-center justify-center h-full">
+          <Text className="flex items-center justify-center h-full">
             {total}
-          </div>
+          </Text>
         );
       }}
     />

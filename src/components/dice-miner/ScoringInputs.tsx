@@ -7,11 +7,11 @@ type Props = {
   round: 1 | 2 | 3;
 };
 
-// const roundContainerClassMap = {
-//   1: "border-b-2 border-b-dm-aquamarine-100",
-//   2: "border-b-2 border-b-dm-aquamarine-400",
-//   3: "",
-// };
+const roundTotalClassMap = {
+  1: "border-b-dm-aquamarine-100",
+  2: "border-b-dm-aquamarine-200",
+  3: "border-b-dm-aquamarine-400",
+};
 
 export default function ScoringInputs({ round }: Props) {
   return (
@@ -23,9 +23,17 @@ export default function ScoringInputs({ round }: Props) {
       <ScoringRow field={`round_${round}_treasure`} fieldType="number" />
       <ScoringRow field={`round_${round}_hazards`} fieldType="number" />
       {/* All rounds have an individual total row */}
-      <TotalRow roundsToSum={[round]} />
+      <TotalRow
+        borderClassName={classNames("border-b-2", roundTotalClassMap[round])}
+        roundsToSum={[round]}
+      />
       {/* Round 2 has a total for round 1 + 2 */}
-      {round === 2 && <TotalRow roundsToSum={[1, 2]} />}
+      {round === 2 && (
+        <TotalRow
+          borderClassName="border-b-2 border-b-dm-aquamarine-300"
+          roundsToSum={[1, 2]}
+        />
+      )}
       {/* Round 3 has a game total */}
       {round === 3 && <TotalRow roundsToSum={[1, 2, 3]} />}
     </div>

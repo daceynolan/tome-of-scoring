@@ -13,10 +13,11 @@ export default function ScoringRow({ fieldType, field }: Props) {
   const { players, updatePlayer } = useContext(MinerContext);
   return (
     <BaseRow
+      cellClassName="border-b"
       cellRenderer={(columnIndex) => {
         return (
           <input
-            className="px-4 text-center w-full h-12 bg-inherit focus:outline-none border-4 border-transparent hover:border-gray-200 focus:border-dm-topaz font-dm-display text-xl"
+            className="px-4 text-center w-full h-12 bg-inherit focus:outline-none border-4 border-transparent hover:border-gray-200 focus:border-dm-topaz font-dm-display text-lg"
             type={fieldType}
             value={players[columnIndex][field]}
             placeholder={fieldType === "text" ? "Name" : undefined}
