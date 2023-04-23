@@ -5,5 +5,7 @@ export default function Cell({
   className,
   ...props
 }: ComponentPropsWithoutRef<"div">) {
-  return <div className={classNames("h-12", className)} {...props} />;
+  return (
+    <div className={classNames("h-12 overflow-hidden", className)} {...props} />
+  );
 }

@@ -5,6 +5,7 @@ import classNames from "classnames";
 import times from "lodash/times";
 
 import Cell from "./Cell";
+import ScoringRow from "./ScoringRow";
 import Text from "./Text";
 
 type Props = {
@@ -80,7 +81,19 @@ export default function ScoringGrid({ round }: Props) {
         )}
       </div>
       <div className="flex-1">
-        {times(5, (rowIndex) => {
+        {/* Player Name Row (Only for round 1) */}
+        {round === 1 && <ScoringRow cellType="text" />}
+        {/* All rounds have three rows for numeric inputs */}
+        <ScoringRow cellType="number" />
+        <ScoringRow cellType="number" />
+        <ScoringRow cellType="number" />
+        {/* All rounds have an individual total row */}
+        <ScoringRow cellType="readOnly" />
+        {/* Round 2 has a total for round 1 + 2 */}
+        {round === 2 && <ScoringRow cellType="readOnly" />}
+        {/* Round 3 has a game total */}
+        {round === 3 && <ScoringRow cellType="readOnly" />}
+        {/* {times(3, (rowIndex) => {
           return (
             <div className="grid grid-cols-4 flex-1" key={rowIndex}>
               {times(4, (columnIndex) => {
@@ -96,12 +109,17 @@ export default function ScoringGrid({ round }: Props) {
                         rowBorderClassMap.oneAndTwo,
                       round === 3 && columnIndex === 4 && rowBorderClassMap.game
                     )}
-                  />
+                  >
+                    <input
+                      className="px-4 text-center w-full h-12 bg-inherit focus:outline-none border-4 border-transparent hover:border-gray-200 focus:border-dm-topaz font-dm-display text-xl"
+                      type="number"
+                    />
+                  </Cell>
                 );
               })}
             </div>
           );
-        })}
+        })} */}
       </div>
     </div>
   );
