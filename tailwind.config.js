@@ -18,6 +18,9 @@ module.exports = {
           topaz: "#fecc58",
         },
       },
+      minWidth: {
+        "dm-cell": 120,
+      },
     },
   },
   plugins: [],

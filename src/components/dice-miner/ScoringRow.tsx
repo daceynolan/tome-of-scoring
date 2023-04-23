@@ -13,7 +13,6 @@ export default function ScoringRow({ fieldType, field }: Props) {
   const { players, updatePlayer } = useContext(MinerContext);
   return (
     <BaseRow
-      rowClassName="border-b"
       cellRenderer={(columnIndex) => {
         return (
           <input

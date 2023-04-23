@@ -4,7 +4,8 @@ import times from "lodash/times";
 import { createContext, useState } from "react";
 import Helmet from "react-helmet";
 
-import ScoringGrid from "./ScoringGrid";
+import ScoringInputs from "./ScoringInputs";
+import ScoringLabels from "./ScoringLabels";
 import Text from "./Text";
 import { MinerContextType, Player, PlayerKeys } from "./types";
 
@@ -70,7 +71,7 @@ export default function DiceMiner() {
         >
           <Container className="bg-white">
             <div className="bg-dm-aquamarine-100 pt-8 pb-4">
-              <div className="border-dm-aquamarine-400 border-y-4 px-12 flex items-center space-x-8 py-1">
+              <div className="border-dm-aquamarine-400 border-y-4 px-12 md:space-x-8 py-1 flex flex-col md:flex-row items-center">
                 <Text as="h1" size="large">
                   Dice Miner
                 </Text>
@@ -79,9 +80,20 @@ export default function DiceMiner() {
                 </Text>
               </div>
             </div>
-            <ScoringGrid round={1} />
-            <ScoringGrid round={2} />
-            <ScoringGrid round={3} />
+            <div className="flex">
+              <div>
+                <ScoringLabels round={1} />
+                <ScoringLabels round={2} />
+                <ScoringLabels round={3} />
+              </div>
+              <div className="overflow-hidden flex-1">
+                <div className="overflow-y-auto">
+                  <ScoringInputs round={1} />
+                  <ScoringInputs round={2} />
+                  <ScoringInputs round={3} />
+                </div>
+              </div>
+            </div>
           </Container>
         </div>
       </MinerContext.Provider>

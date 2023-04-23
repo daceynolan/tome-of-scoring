@@ -6,17 +6,16 @@ import Cell from "./Cell";
 
 type Props = {
   cellRenderer: (cellIndex: number) => ReactNode;
-  rowClassName?: string;
 };
 
-export default function BaseRow({ cellRenderer, rowClassName }: Props) {
+export default function BaseRow({ cellRenderer }: Props) {
   return (
-    <div className="grid grid-cols-4 flex-1">
+    <div className="flex items-center flex-1">
       {times(4, (columnIndex) => {
         return (
           <Cell
             key={columnIndex}
-            className={classNames("even:bg-dm-aquamarine-50", rowClassName)}
+            className="even:bg-dm-aquamarine-50 min-w-dm-cell flex-1 border-b"
           >
             {cellRenderer(columnIndex)}
           </Cell>

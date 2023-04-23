@@ -7,7 +7,6 @@ import { PlayerKeys } from "./types";
 
 type Props = {
   roundsToSum: number[];
-  rowClassName?: string;
 };
 
 const SCORING_METHODS = ["sequences", "treasure", "hazards"];
@@ -24,13 +23,12 @@ function getFieldsToSum(roundsToSum: number[]) {
   return fields;
 }
 
-export default function TotalRow({ roundsToSum, rowClassName }: Props) {
+export default function TotalRow({ roundsToSum }: Props) {
   const { players } = useContext(MinerContext);
   const fieldsToSum = getFieldsToSum(roundsToSum);
 
   return (
     <BaseRow
-      rowClassName={rowClassName}
       cellRenderer={(columnIndex) => {
         const player = players[columnIndex];
         const total = sum(
