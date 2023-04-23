@@ -2,11 +2,11 @@ import DiceIcon from "assets/dice_miner/dice_icon.png";
 import GemIcon from "assets/dice_miner/gem_icon.png";
 import HazardIcon from "assets/dice_miner/hazard_icon.png";
 import classNames from "classnames";
-import times from "lodash/times";
 
 import Cell from "./Cell";
 import ScoringRow from "./ScoringRow";
 import Text from "./Text";
+import TotalRow from "./TotalRow";
 
 type Props = {
   round: 1 | 2 | 3;
@@ -82,44 +82,27 @@ export default function ScoringGrid({ round }: Props) {
       </div>
       <div className="flex-1">
         {/* Player Name Row (Only for round 1) */}
-        {round === 1 && <ScoringRow cellType="text" />}
+        {round === 1 && <ScoringRow field="name" fieldType="text" />}
         {/* All rounds have three rows for numeric inputs */}
-        <ScoringRow cellType="number" />
-        <ScoringRow cellType="number" />
-        <ScoringRow cellType="number" />
+        <ScoringRow field={`round_${round}_sequences`} fieldType="number" />
+        <ScoringRow field={`round_${round}_treasure`} fieldType="number" />
+        <ScoringRow field={`round_${round}_hazards`} fieldType="number" />
         {/* All rounds have an individual total row */}
-        <ScoringRow cellType="readOnly" />
+        <TotalRow roundsToSum={[round]} />
         {/* Round 2 has a total for round 1 + 2 */}
-        {round === 2 && <ScoringRow cellType="readOnly" />}
+        {round === 2 && (
+          <TotalRow
+            rowClassName="border-t-2 border-dm-aquamarine-200"
+            roundsToSum={[1, 2]}
+          />
+        )}
         {/* Round 3 has a game total */}
-        {round === 3 && <ScoringRow cellType="readOnly" />}
-        {/* {times(3, (rowIndex) => {
-          return (
-            <div className="grid grid-cols-4 flex-1" key={rowIndex}>
-              {times(4, (columnIndex) => {
-                return (
-                  <Cell
-                    key={columnIndex}
-                    className={classNames(
-                      "even:bg-dm-aquamarine-50",
-                      (round === 1 || columnIndex !== 4) &&
-                        rowBorderClassMap.default,
-                      round === 2 &&
-                        columnIndex === 4 &&
-                        rowBorderClassMap.oneAndTwo,
-                      round === 3 && columnIndex === 4 && rowBorderClassMap.game
-                    )}
-                  >
-                    <input
-                      className="px-4 text-center w-full h-12 bg-inherit focus:outline-none border-4 border-transparent hover:border-gray-200 focus:border-dm-topaz font-dm-display text-xl"
-                      type="number"
-                    />
-                  </Cell>
-                );
-              })}
-            </div>
-          );
-        })} */}
+        {round === 3 && (
+          <TotalRow
+            rowClassName="border-t-2 border-b-0 border-dm-aquamarine-400"
+            roundsToSum={[1, 2, 3]}
+          />
+        )}
       </div>
     </div>
   );
