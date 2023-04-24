@@ -1,8 +1,9 @@
 import classNames from "classnames";
 import times from "lodash/times";
-import { ReactNode } from "react";
+import { ReactNode, useContext } from "react";
 
 import Cell from "./Cell";
+import { MinerContext } from "./DiceMiner";
 
 type Props = {
   cellRenderer: (cellIndex: number) => ReactNode;
@@ -10,9 +11,10 @@ type Props = {
 };
 
 export default function BaseRow({ cellRenderer, cellClassName }: Props) {
+  const { numberOfPlayers } = useContext(MinerContext);
   return (
     <div className="flex items-center flex-1">
-      {times(4, (columnIndex) => {
+      {times(numberOfPlayers, (columnIndex) => {
         return (
           <Cell
             key={columnIndex}

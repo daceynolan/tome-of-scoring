@@ -15,6 +15,7 @@ export type PlayerKeys = keyof Player;
 
 export type MinerContextType = {
   players: Player[];
+  numberOfPlayers: number;
   updatePlayer: (
     playerIndex: number,
     field: PlayerKeys,
