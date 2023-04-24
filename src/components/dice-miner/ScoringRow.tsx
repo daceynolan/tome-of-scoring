@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { useIntl } from "react-intl";
 
 import BaseRow from "./BaseRow";
 import { MinerContext } from "./DiceMiner";
@@ -11,6 +12,8 @@ type Props = {
 
 export default function ScoringRow({ fieldType, field }: Props) {
   const { players, updatePlayer } = useContext(MinerContext);
+  const intl = useIntl();
+
   return (
     <BaseRow
       cellClassName="border-b"
@@ -20,7 +23,14 @@ export default function ScoringRow({ fieldType, field }: Props) {
             className="px-4 text-center w-full h-12 bg-inherit focus:outline-none border-4 border-transparent hover:border-gray-200 focus:border-dm-topaz font-dm-display text-lg"
             type={fieldType}
             value={players[columnIndex][field]}
-            placeholder={fieldType === "text" ? "Name" : undefined}
+            placeholder={
+              fieldType === "text"
+                ? intl.formatMessage({
+                    id: "dice-miner__name",
+                    defaultMessage: "Name",
+                  })
+                : undefined
+            }
             onChange={(e) => {
               const value = e.target.value;
 

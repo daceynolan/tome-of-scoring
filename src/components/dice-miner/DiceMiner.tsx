@@ -3,6 +3,7 @@ import Container from "components/core/Container/Container";
 import times from "lodash/times";
 import { createContext, useState } from "react";
 import Helmet from "react-helmet";
+import { FormattedMessage } from "react-intl";
 
 import ScoringInputs from "./ScoringInputs";
 import ScoringLabels from "./ScoringLabels";
@@ -76,7 +77,10 @@ export default function DiceMiner() {
                   Dice Miner
                 </Text>
                 <Text className="capitalize" theme="light" as="h2">
-                  Multi-player Score Sheet
+                  <FormattedMessage
+                    id="dice-miner__subheading"
+                    defaultMessage="Multi-player Score Sheet"
+                  />
                 </Text>
               </div>
             </div>
