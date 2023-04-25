@@ -1,8 +1,11 @@
 {
+  "dice-miner__number-of-players": "Anzahl der Spieler",
   "dice-miner__subheading": "Ergebnisliste für mehrere Spieler",
   "dice-miner__player": "Spieler",
   "dice-miner__name": "Name",
   "dice-miner__round": "Runde",
   "dice-miner__total": "Gesamtsumme",
-  "dice-miner__game": "Spiel"
+  "dice-miner__game": "Spiel",
+  "dice-miner__end": "Spiel beenden",
+  "dice-miner__rematch": "Rückkampf"
 }

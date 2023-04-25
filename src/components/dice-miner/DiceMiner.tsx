@@ -139,7 +139,12 @@ export default function DiceMiner() {
           <Container className="bg-white">
             <div className="bg-dm-aquamarine-100 py-4">
               <Text className="capitalize flex justify-center mb-4 mr-0 md:justify-end md:mr-4">
-                <label htmlFor="number-of-players">Number of players</label>
+                <label htmlFor="number-of-players">
+                  <FormattedMessage
+                    id="dice-miner__number-of-players"
+                    defaultMessage="Number of players"
+                  />
+                </label>
                 <select
                   className="rounded ml-4"
                   name="number-of-players"
@@ -182,8 +187,18 @@ export default function DiceMiner() {
           </Container>
           <Container>
             <div className="flex p-4 bg-white mt-4 flex-col gap-4 md:flex-row md:justify-between">
-              <Button onClick={resetGame}>End game</Button>
-              <Button onClick={rematch}>Rematch</Button>
+              <Button onClick={resetGame}>
+                <FormattedMessage
+                  id="dice-miner__end"
+                  defaultMessage="End game"
+                />
+              </Button>
+              <Button onClick={rematch}>
+                <FormattedMessage
+                  id="dice-miner__rematch"
+                  defaultMessage="Rematch"
+                />
+              </Button>
             </div>
           </Container>
         </div>

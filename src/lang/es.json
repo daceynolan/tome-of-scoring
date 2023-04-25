@@ -1,8 +1,11 @@
 {
+  "dice-miner__number-of-players": "Numero de jugadores",
   "dice-miner__subheading": "Hoja de puntuación multijugador",
   "dice-miner__player": "Jugador",
   "dice-miner__name": "Nombre",
   "dice-miner__round": "Redondo",
   "dice-miner__total": "Total",
-  "dice-miner__game": "Juego"
+  "dice-miner__game": "Juego",
+  "dice-miner__end": "Restablecer el juego",
+  "dice-miner__rematch": "Revancha"
 }
