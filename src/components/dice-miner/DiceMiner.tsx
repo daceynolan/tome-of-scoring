@@ -1,7 +1,6 @@
 import StoneTexture from "assets/dice_miner/stone_texture.jpeg";
 import Button from "components/core/Button";
 import Container from "components/core/Container/Container";
-import Urls from "constants/Urls";
 import { ChangeEvent, createContext, useEffect, useState } from "react";
 import Helmet from "react-helmet";
 import { FormattedMessage } from "react-intl";
@@ -11,8 +10,8 @@ import ScoringLabels from "./ScoringLabels";
 import Text from "./Text";
 import { MinerContextType, Player, PlayerKeys } from "./types";
 
-//version local storage key to prevent stale data with app changes
-const LOCAL_STORAGE_KEY = "dice-miner_v1.0.0";
+// version local storage key to prevent stale data with app changes
+const LOCAL_STORAGE_KEY = "dice-miner_v1";
 
 const DEFAULT_NUMBER_OF_PLAYERS = 4;
 
@@ -36,16 +35,14 @@ const DEFAULT_PLAYER_DATA = {
 };
 
 export default function DiceMiner() {
-  const localGame = localStorage.getItem(LOCAL_STORAGE_KEY);
-
-  const LocalGameNUmberOfPlayers = localGame && JSON.parse(localGame).length;
-
+  const localPlayers = localStorage.getItem(LOCAL_STORAGE_KEY);
+  const localNUmberOfPlayers = localPlayers && JSON.parse(localPlayers).length;
   const [numberOfPlayers, setNumberOfPlayers] = useState(
-    localGame ? LocalGameNUmberOfPlayers : DEFAULT_NUMBER_OF_PLAYERS
+    localPlayers ? localNUmberOfPlayers : DEFAULT_NUMBER_OF_PLAYERS
   );
   const [players, setPlayers] = useState<Player[]>(
-    localGame
-      ? JSON.parse(localGame)
+    localPlayers
+      ? JSON.parse(localPlayers)
       : Array(DEFAULT_NUMBER_OF_PLAYERS).fill(DEFAULT_PLAYER_DATA)
   );
 
@@ -84,29 +81,20 @@ export default function DiceMiner() {
     } else if (newNumberOfPlayers < currentNumberOfPlayers) {
       const newPlayers = players.slice(0, newNumberOfPlayers);
       setPlayers(newPlayers);
-    } else {
     }
   }
 
   function resetGame() {
+    setPlayers(Array(DEFAULT_NUMBER_OF_PLAYERS).fill(DEFAULT_PLAYER_DATA));
     localStorage.removeItem(LOCAL_STORAGE_KEY);
-    document.location.href = Urls.routes["dice-miner"];
   }
 
   function rematch() {
     setPlayers(
       players.map((player) => {
         return {
-          ...player,
-          round_1_sequences: 0,
-          round_1_treasure: 0,
-          round_1_hazards: 0,
-          round_2_sequences: 0,
-          round_2_treasure: 0,
-          round_2_hazards: 0,
-          round_3_sequences: 0,
-          round_3_treasure: 0,
-          round_3_hazards: 0,
+          ...DEFAULT_PLAYER_DATA,
+          name: player.name,
         };
       })
     );
