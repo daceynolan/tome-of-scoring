@@ -1,6 +1,7 @@
 import StoneTexture from "assets/dice_miner/stone_texture.jpeg";
 import Container from "components/core/Container/Container";
-import { ChangeEvent, createContext, useState } from "react";
+import Urls from "constants/Urls";
+import { ChangeEvent, createContext, useEffect, useState } from "react";
 import Helmet from "react-helmet";
 import { FormattedMessage } from "react-intl";
 
@@ -8,6 +9,9 @@ import ScoringInputs from "./ScoringInputs";
 import ScoringLabels from "./ScoringLabels";
 import Text from "./Text";
 import { MinerContextType, Player, PlayerKeys } from "./types";
+
+//version local storage key to prevent stale data with app changes
+const LOCAL_STORAGE_KEY = "dice-miner_v1.0.0";
 
 const DEFAULT_NUMBER_OF_PLAYERS = 4;
 
@@ -31,12 +35,22 @@ const DEFAULT_PLAYER_DATA = {
 };
 
 export default function DiceMiner() {
+  const localGame = localStorage.getItem(LOCAL_STORAGE_KEY);
+
+  const LocalGameNUmberOfPlayers = localGame && JSON.parse(localGame).length;
+
   const [numberOfPlayers, setNumberOfPlayers] = useState(
-    DEFAULT_NUMBER_OF_PLAYERS
+    localGame ? LocalGameNUmberOfPlayers : DEFAULT_NUMBER_OF_PLAYERS
   );
   const [players, setPlayers] = useState<Player[]>(
-    Array(DEFAULT_NUMBER_OF_PLAYERS).fill(DEFAULT_PLAYER_DATA)
+    localGame
+      ? JSON.parse(localGame)
+      : Array(DEFAULT_NUMBER_OF_PLAYERS).fill(DEFAULT_PLAYER_DATA)
   );
+
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(players));
+  }, [JSON.stringify(players)]); // eslint-disable-line react-hooks/exhaustive-deps
 
   function updatePlayer(
     playerIndex: number,
@@ -69,6 +83,7 @@ export default function DiceMiner() {
     } else if (newNumberOfPlayers < currentNumberOfPlayers) {
       const newPlayers = players.slice(0, newNumberOfPlayers);
       setPlayers(newPlayers);
+    } else {
     }
   }
 
