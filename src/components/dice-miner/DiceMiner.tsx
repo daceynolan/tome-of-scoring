@@ -1,4 +1,5 @@
 import StoneTexture from "assets/dice_miner/stone_texture.jpeg";
+import Button from "components/core/Button";
 import Container from "components/core/Container/Container";
 import Urls from "constants/Urls";
 import { ChangeEvent, createContext, useEffect, useState } from "react";
@@ -87,6 +88,30 @@ export default function DiceMiner() {
     }
   }
 
+  function resetGame() {
+    localStorage.removeItem(LOCAL_STORAGE_KEY);
+    document.location.href = Urls.routes["dice-miner"];
+  }
+
+  function rematch() {
+    setPlayers(
+      players.map((player) => {
+        return {
+          ...player,
+          round_1_sequences: 0,
+          round_1_treasure: 0,
+          round_1_hazards: 0,
+          round_2_sequences: 0,
+          round_2_treasure: 0,
+          round_2_hazards: 0,
+          round_3_sequences: 0,
+          round_3_treasure: 0,
+          round_3_hazards: 0,
+        };
+      })
+    );
+  }
+
   return (
     <>
       <Helmet>
@@ -153,6 +178,12 @@ export default function DiceMiner() {
                   <ScoringInputs round={3} />
                 </div>
               </div>
+            </div>
+          </Container>
+          <Container>
+            <div className="flex p-4 bg-white mt-4 flex-col gap-4 md:flex-row md:justify-between">
+              <Button onClick={resetGame}>End game</Button>
+              <Button onClick={rematch}>Rematch</Button>
             </div>
           </Container>
         </div>
