@@ -2,7 +2,7 @@ const Urls = {
   routes: {
     "game-select": "/",
     "dice-miner": "/dice-miner",
-    retrograde: "/retrograde",
+    munchkin: "/munchkin",
   },
 };
 

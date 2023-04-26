@@ -9,7 +9,7 @@ export default function GameSelect() {
           <Link to={Urls.routes["dice-miner"]}>Dice Miner</Link>
         </li>
         <li>
-          <Link to={Urls.routes.retrograde}>Retrograde</Link>
+          <Link to={Urls.routes.munchkin}>Munchkin</Link>
         </li>
       </ul>
     </div>

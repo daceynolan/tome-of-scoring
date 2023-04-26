@@ -1,6 +1,6 @@
 import GameSelect from "components/core/GameSelect";
 import DiceMiner from "components/dice-miner";
-import Retrograde from "components/retrograde";
+import Munchkin from "components/munchkin";
 import Urls from "constants/Urls";
 import language_de from "lang/de.json";
 import language_en from "lang/en.json";
@@ -35,7 +35,7 @@ export default function TomeOfScoring() {
             element={<GameSelect />}
           />
           <Route path={Urls.routes["dice-miner"]} element={<DiceMiner />} />
-          <Route path={Urls.routes.retrograde} element={<Retrograde />} />
+          <Route path={Urls.routes.munchkin} element={<Munchkin />} />
         </Routes>
       </BrowserRouter>
     </IntlProvider>
