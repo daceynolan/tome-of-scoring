@@ -1,7 +1,7 @@
 import classNames from "classnames";
-import { ComponentPropsWithoutRef } from "react";
+import { ButtonHTMLAttributes } from "react";
 
-type Props = ComponentPropsWithoutRef<"button"> & {
+type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
   theme?: "dice-miner";
 };
 

@@ -1,0 +1,7 @@
+.player-card {
+  border-bottom: solid 2px #b6a1a1;
+}
+
+.player-card:last-child {
+  border-bottom: none;
+}

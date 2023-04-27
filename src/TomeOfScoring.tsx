@@ -1,6 +1,13 @@
 import GameSelect from "components/core/GameSelect";
 import DiceMiner from "components/dice-miner";
-import Munchkin from "components/munchkin";
+import Combat from "components/munchkin/Combat";
+import ConfigureGame from "components/munchkin/ConfigureGame";
+import CreatePlayer from "components/munchkin/CreatePlayer";
+import EditPlayer from "components/munchkin/EditPlayer";
+import Game from "components/munchkin/Game";
+import Munchkin from "components/munchkin/Munchkin";
+import NotFoundPage from "components/munchkin/NotFoundPage";
+import SplashScreen from "components/munchkin/SplashScreen";
 import Urls from "constants/Urls";
 import language_de from "lang/de.json";
 import language_en from "lang/en.json";
@@ -35,7 +42,15 @@ export default function TomeOfScoring() {
             element={<GameSelect />}
           />
           <Route path={Urls.routes["dice-miner"]} element={<DiceMiner />} />
-          <Route path={Urls.routes.munchkin} element={<Munchkin />} />
+          <Route path={Urls.routes.munchkin} element={<Munchkin />}>
+            <Route index element={<SplashScreen />} />
+            <Route path={Urls.routes.configure} element={<ConfigureGame />} />
+            <Route path={Urls.routes.game} element={<Game />} />
+            <Route path={Urls.routes.combat} element={<Combat />} />
+            <Route path={Urls.routes.editPlayer} element={<EditPlayer />} />
+            <Route path={Urls.routes.CreatePlayer} element={<CreatePlayer />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </IntlProvider>

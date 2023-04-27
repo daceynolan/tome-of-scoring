@@ -17,6 +17,15 @@ module.exports = {
           },
           topaz: "#fecc58",
         },
+        m: {
+          brick: {
+            500: "#b22222",
+          },
+          mud: {
+            300: "#fff4e8",
+            500: "#4a1615",
+          },
+        },
       },
       minWidth: {
         "dm-cell": 120,
