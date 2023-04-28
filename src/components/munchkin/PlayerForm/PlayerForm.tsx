@@ -64,6 +64,7 @@ function PlayerForm({ defaultFormData = {}, onSave }: Props) {
       <div className="text-xl mb-7">
         <Label htmlFor="name">Player's Name</Label>
         <Input
+          ariaInvalid={Boolean(errors.name)}
           id="name"
           onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
             updatePlayerData("name", event.target.value)

@@ -17,11 +17,23 @@ export default function ScoringInputs({ round }: Props) {
   return (
     <div className="flex-1">
       {/* Player Name Row (Only for round 1) */}
-      {round === 1 && <ScoringRow field="name" fieldType="text" />}
+      {round === 1 && <ScoringRow label="name" field="name" fieldType="text" />}
       {/* All rounds have three rows for numeric inputs */}
-      <ScoringRow field={`round_${round}_sequences`} fieldType="number" />
-      <ScoringRow field={`round_${round}_treasure`} fieldType="number" />
-      <ScoringRow field={`round_${round}_hazards`} fieldType="number" />
+      <ScoringRow
+        label={`round ${round} sequences`}
+        field={`round_${round}_sequences`}
+        fieldType="number"
+      />
+      <ScoringRow
+        label={`round ${round} treasure`}
+        field={`round_${round}_treasure`}
+        fieldType="number"
+      />
+      <ScoringRow
+        label={`round ${round} hazards`}
+        field={`round_${round}_hazards`}
+        fieldType="number"
+      />
       {/* All rounds have an individual total row */}
       <TotalRow
         borderClassName={classNames("border-b-2", roundTotalClassMap[round])}

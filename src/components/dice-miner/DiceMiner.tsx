@@ -4,10 +4,10 @@ import { ChangeEvent, createContext, useEffect, useState } from "react";
 import Helmet from "react-helmet";
 import { FormattedMessage } from "react-intl";
 
+import Text from "../core/Text/Text";
 import Button from "./Button";
 import ScoringInputs from "./ScoringInputs";
 import ScoringLabels from "./ScoringLabels";
-import Text from "../core/Text/Text";
 import { MinerContextType, Player, PlayerKeys } from "./types";
 
 // version local storage key to prevent stale data with app changes
