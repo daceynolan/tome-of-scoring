@@ -8,7 +8,7 @@ type Props = ComponentPropsWithoutRef<"div"> & {
 };
 
 const themeClassMap = {
-  warning: "text-m-treasure-500 bg-m-treasure-100 border-m-treasure-200",
+  warning: "text-m-treasure-800 bg-m-treasure-100 border-m-treasure-200",
   success: "text-m-leaf-500 bg-m-leaf-100 border-m-leaf-200",
 };
 

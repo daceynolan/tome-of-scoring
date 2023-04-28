@@ -40,7 +40,7 @@ function EditPlayer() {
           theme="ghost"
           aria-label="Cancel"
         >
-          <img className="w-4" src={Close} alt="" />
+          <img className="w-4 text-m-mud-500" src={Close} alt="" />
         </Button>
       </div>
 

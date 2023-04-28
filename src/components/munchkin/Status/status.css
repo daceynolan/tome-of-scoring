@@ -1,5 +1,5 @@
 .status--warning {
-  @apply text-m-treasure-500 bg-m-treasure-100 border-m-treasure-200;
+  @apply text-m-treasure-800 bg-m-treasure-100 border-m-treasure-200;
 }
 
 .status--success {

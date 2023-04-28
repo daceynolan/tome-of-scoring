@@ -33,7 +33,8 @@ module.exports = {
           treasure: {
             100: "#fff3cd",
             200: "#ffeeba",
-            500: "#856404",
+            500: "#daa710",
+            800: "#856404",
           },
           water: {
             100: "#d1ecf1",
