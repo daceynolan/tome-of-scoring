@@ -24,6 +24,7 @@ export default function ScoringLabels({ round }: Props) {
         "grid grid-cols-2 grid-rows-5",
         roundBackgroundClassMap[round]
       )}
+      aria-hidden
     >
       {round === 1 && (
         <div className="bg-white col-span-2 flex items-center justify-center">

@@ -22,9 +22,13 @@ export default function ScoringRow({ fieldType, field, label }: Props) {
         return (
           <>
             {fieldType === "text" ? (
-              <label className="sr-only">{label}</label>
+              <label className="sr-only">
+                {`${label} for player ${columnIndex + 1}`}
+              </label>
             ) : (
-              <label className="sr-only">{`${label} score`}</label>
+              <label className="sr-only">{`${label} score for player ${
+                columnIndex + 1
+              }`}</label>
             )}
             <input
               className="px-4 text-center w-full h-12 bg-inherit focus:outline-none border-4 border-transparent hover:border-gray-200 focus:border-dm-topaz font-dm-display text-lg"
