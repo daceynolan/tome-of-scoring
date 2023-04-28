@@ -12,7 +12,7 @@ import Button from "../Button";
 const MIN_PLAYERS = 2;
 const MAX_PLAYERS = 6;
 
-const ConfigureGame = () => {
+function ConfigureGame() {
   const game = useContext(GameContext);
   const [players, setPlayers] = game.usePlayers;
   const [playersAreValid, setPlayersAreValid] = useState(false);
@@ -26,11 +26,11 @@ const ConfigureGame = () => {
     }
   }, [JSON.stringify(players)]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const removePlayer = (index: number) => {
+  function removePlayer(index: number) {
     const currentPlayers = [...players];
     currentPlayers.splice(index, 1);
     setPlayers(currentPlayers);
-  };
+  }
 
   return (
     <div className="flex flex-col">
@@ -64,7 +64,12 @@ const ConfigureGame = () => {
 
       <div className="flex justify-end mb-7">
         {numberOfPlayers < MAX_PLAYERS && (
-          <Button as={Link} to={Urls.routes.CreatePlayer} styleReset>
+          <Button
+            as={Link}
+            to={Urls.routes.CreatePlayer}
+            styleReset
+            theme="link"
+          >
             + Add Player
           </Button>
         )}
@@ -77,6 +82,6 @@ const ConfigureGame = () => {
       )}
     </div>
   );
-};
+}
 
 export default ConfigureGame;

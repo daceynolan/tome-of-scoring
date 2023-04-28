@@ -1,13 +1,17 @@
 import "./card.css";
 
+import Container from "components/core/Container/Container";
 import { ComponentPropsWithoutRef } from "react";
 
-const Card = ({ children }: ComponentPropsWithoutRef<"div">) => {
+function Card({ children }: ComponentPropsWithoutRef<"div">) {
   return (
-    <div className="mt-6 rounded-3xl bg-m-mud-500 p-2.5 w-full max-w-sm">
-      <div className="card__inner bg-m-mud-300 p-5">{children}</div>
-    </div>
+    <Container
+      className="rounded-3xl bg-m-mud-500 mt-6 p-2.5 w-full"
+      size="small"
+    >
+      <div className="card__inner bg-m-mud-300 p-4">{children}</div>
+    </Container>
   );
-};
+}
 
 export default Card;

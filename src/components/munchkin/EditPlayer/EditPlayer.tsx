@@ -7,13 +7,13 @@ import { Player } from "types/munchkin/types";
 import Button from "../Button";
 import PlayerForm from "../PlayerForm/PlayerForm";
 
-const EditPlayer = () => {
+function EditPlayer() {
   const { id } = useParams();
   const navigate = useNavigate();
   const game = useContext(GameContext);
   const [players, setPlayers] = game.usePlayers;
 
-  const handlePlayerUpdate = (player: Player) => {
+  function handlePlayerUpdate(player: Player) {
     const newData = [...players];
 
     const playerIndex = players.findIndex((p) => {
@@ -23,13 +23,19 @@ const EditPlayer = () => {
 
     setPlayers(newData);
     navigate(Urls.routes.configure);
-  };
+  }
 
   return (
     <>
       <div className="edit-player__heading flex justify-between mb-7 items-center">
         <h1 className="text-3xl font-semibold text-m-mud-500">Edit Player</h1>
-        <Button as={Link} to={Urls.routes.configure} styleReset>
+        <Button
+          as={Link}
+          to={Urls.routes.configure}
+          styleReset
+          theme="ghost"
+          aria-label="Cancel"
+        >
           X
         </Button>
       </div>
@@ -42,6 +48,6 @@ const EditPlayer = () => {
       />
     </>
   );
-};
+}
 
 export default EditPlayer;

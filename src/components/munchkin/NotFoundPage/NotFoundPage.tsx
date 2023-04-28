@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import Button from "../Button";
 
-const NotFoundPage = () => {
+function NotFoundPage() {
   return (
     <>
       <div className="page-not-found__section">
@@ -33,6 +33,6 @@ const NotFoundPage = () => {
       </div>
     </>
   );
-};
+}
 
 export default NotFoundPage;

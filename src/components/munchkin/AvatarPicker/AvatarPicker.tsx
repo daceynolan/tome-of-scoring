@@ -10,7 +10,7 @@ type Props = {
   onChange: (avatarId: AvatarId) => void;
 };
 
-const AvatarPicker = ({ value, onChange }: Props) => {
+function AvatarPicker({ value, onChange }: Props) {
   return (
     <div className="flex gap-2 justify-center">
       {MUNCHKIN_AVATAR_LIST.map((avatar) => (
@@ -35,5 +35,5 @@ const AvatarPicker = ({ value, onChange }: Props) => {
       ))}
     </div>
   );
-};
+}
 export default AvatarPicker;

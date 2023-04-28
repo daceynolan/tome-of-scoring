@@ -7,7 +7,7 @@ import { Link, useLocation } from "react-router-dom";
 import CombatScoreInput from "..//CombatScoreInput";
 import Button from "../Button";
 
-const Combat = () => {
+function Combat() {
   let location = useLocation();
   const { score } = queryString.parse(location.search);
 
@@ -47,6 +47,6 @@ const Combat = () => {
       </Button>
     </div>
   );
-};
+}
 
 export default Combat;

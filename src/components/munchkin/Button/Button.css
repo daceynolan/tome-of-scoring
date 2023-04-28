@@ -1,18 +1,21 @@
-.button--info {
-  color: #0c5460;
-  background-color: #d1ecf1;
-  border: solid 2px #bee5eb;
-  border-radius: 6px;
-  padding: 6px;
-  font-size: 12px;
+.button {
+  @apply border-2 shadow shadow-gray-400 inline-flex items-center justify-center;
 }
 
 .button--default {
-  @apply text-m-mud-500 border-m-mud-500 text-xl p-4 bg-transparent rounded-xl;
+  @apply text-m-mud-500 border-m-mud-500 text-xl p-4 rounded-xl hover:bg-m-mud-500 hover:text-m-mud-300;
 }
 
-.button {
-  @apply border-2 shadow shadow-gray-400 inline-flex items-center justify-center;
+.button--info {
+  @apply text-m-water-500 text-xs p-2 rounded border border-m-water-200 bg-m-water-200 hover:bg-m-water-500 hover:text-m-water-200 hover:border-m-water-500;
+}
+
+.button--link {
+  @apply text-m-mud-500 text-xl p-2 hover:underline;
+}
+
+.button--ghost {
+  @apply text-m-mud-500 text-xl;
 }
 
 .button--fluid {
@@ -20,5 +23,5 @@
 }
 
 .button--style-reset {
-  @apply p-0 border-none bg-transparent shadow-none;
+  @apply border-transparent bg-transparent shadow-none;
 }

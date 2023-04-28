@@ -8,25 +8,31 @@ import { createNewPlayer } from "utils/player";
 import Button from "../Button";
 import PlayerForm from "../PlayerForm";
 
-const CreatePlayer = () => {
+function CreatePlayer() {
   const navigate = useNavigate();
   const game = useContext(GameContext);
   const [players, setPlayers] = game.usePlayers;
 
-  const handlePlayerCreate = (player: PlayerType) => {
+  function handlePlayerCreate(player: PlayerType) {
     const newData = [...players];
 
     newData.push(createNewPlayer({ ...player }));
 
     setPlayers(newData);
     navigate(Urls.routes.configure);
-  };
+  }
 
   return (
     <>
       <div className="flex justify-between mb-7 items-center">
         <h1 className="text-3xl font-semibold text-m-mud-500">Create Player</h1>
-        <Button as={Link} to={Urls.routes.configure} styleReset>
+        <Button
+          as={Link}
+          to={Urls.routes.configure}
+          styleReset
+          theme="ghost"
+          aria-label="Cancel"
+        >
           X
         </Button>
       </div>
@@ -37,6 +43,6 @@ const CreatePlayer = () => {
       />
     </>
   );
-};
+}
 
 export default CreatePlayer;

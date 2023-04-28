@@ -8,16 +8,16 @@ type Props = {
   onChange(newBonus: number): void;
 };
 
-const ScoreInput = ({ currentScore, max, min, onChange }: Props) => {
-  const incrementScore = () => {
+function ScoreInput({ currentScore, max, min, onChange }: Props) {
+  function incrementScore() {
     if (max && currentScore >= max) return;
     onChange(currentScore + 1);
-  };
+  }
 
-  const decrementScore = () => {
+  function decrementScore() {
     if (min && currentScore <= min) return;
     onChange(currentScore - 1);
-  };
+  }
 
   return (
     <div className="flex">
@@ -25,21 +25,23 @@ const ScoreInput = ({ currentScore, max, min, onChange }: Props) => {
         onClick={decrementScore}
         styleReset
         aria-label={`Decrement by one`}
+        theme="ghost"
       >
         -
       </Button>
-      <div className="score-input__score self-center text-2xl p-2">
+      <div className="p-2 w-16 self-center text-2xl box-border">
         {currentScore}
       </div>
       <Button
         onClick={incrementScore}
         styleReset
         aria-label={`Increment by one`}
+        theme="ghost"
       >
         +
       </Button>
     </div>
   );
-};
+}
 
 export default ScoreInput;

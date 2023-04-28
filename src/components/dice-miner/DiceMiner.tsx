@@ -1,10 +1,10 @@
 import StoneTexture from "assets/dice_miner/stone_texture.jpeg";
-import Button from "components/core/Button";
 import Container from "components/core/Container/Container";
 import { ChangeEvent, createContext, useEffect, useState } from "react";
 import Helmet from "react-helmet";
 import { FormattedMessage } from "react-intl";
 
+import Button from "./Button";
 import ScoringInputs from "./ScoringInputs";
 import ScoringLabels from "./ScoringLabels";
 import Text from "./Text";

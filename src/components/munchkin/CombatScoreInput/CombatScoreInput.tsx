@@ -6,7 +6,7 @@ type Props = {
   onAdjustmentClick: (adjustment: number) => void;
 };
 
-const CombatScoreInput = ({ onAdjustmentClick, combatant }: Props) => {
+function CombatScoreInput({ onAdjustmentClick, combatant }: Props) {
   const handleAdjustmentClick = (adjustment: number) => {
     onAdjustmentClick(adjustment);
   };
@@ -15,48 +15,48 @@ const CombatScoreInput = ({ onAdjustmentClick, combatant }: Props) => {
     <ButtonGroup>
       <Button
         aria-label={`decrement ${combatant}'s total by 5`}
-        fluid
         onClick={() => handleAdjustmentClick(-5)}
+        className="md:w-14 w-12"
       >
         -5
       </Button>
       <Button
         aria-label={`decrement ${combatant}'s total by 3`}
-        fluid
         onClick={() => handleAdjustmentClick(-3)}
+        className="md:w-14 w-12"
       >
         -3
       </Button>
       <Button
         aria-label={`decrement ${combatant}'s total by 1`}
-        fluid
         onClick={() => handleAdjustmentClick(-1)}
+        className="md:w-14 w-12"
       >
         -1
       </Button>
       <Button
         aria-label={`increment ${combatant}'s total by 1`}
-        fluid
         onClick={() => handleAdjustmentClick(1)}
+        className="md:w-14 w-12"
       >
         +1
       </Button>
       <Button
         aria-label={`increment ${combatant}'s total by 3`}
-        fluid
         onClick={() => handleAdjustmentClick(3)}
+        className="md:w-14 w-12"
       >
         +3
       </Button>
       <Button
         aria-label={`increment ${combatant}'s total by 5`}
-        fluid
         onClick={() => handleAdjustmentClick(5)}
+        className="md:w-14 w-12"
       >
         +5
       </Button>
     </ButtonGroup>
   );
-};
+}
 
 export default CombatScoreInput;

@@ -13,7 +13,7 @@ import PlayerCard from "../PlayerCard/PlayerCard";
 import ScoreInput from "../ScoreInput/ScoreInput";
 import Status from "../Status";
 
-const Game = () => {
+function Game() {
   const game = useContext(GameContext);
   const navigate = useNavigate();
   const [players, setPlayers] = game.usePlayers;
@@ -26,11 +26,11 @@ const Game = () => {
     setHightestPlayerLevel(getHighestLevel(levels));
   }, [players]);
 
-  const updatePlayer = (
+  function updatePlayer(
     playerId: string,
     field: string,
     value: string | number
-  ) => {
+  ) {
     setPlayers(
       players.map((player) => {
         if (player.id === playerId) {
@@ -42,18 +42,18 @@ const Game = () => {
         return player;
       })
     );
-  };
+  }
 
-  const resetGame = () => {
+  function resetGame() {
     setPlayers(
       Array(2)
         .fill(null)
         .map(() => createNewPlayer())
     );
     navigate(Urls.routes.munchkin);
-  };
+  }
 
-  const rematchGame = () => {
+  function rematchGame() {
     setPlayers(
       players.map((player) => {
         return {
@@ -64,7 +64,7 @@ const Game = () => {
         };
       })
     );
-  };
+  }
 
   return (
     <>
@@ -113,21 +113,18 @@ const Game = () => {
                     }
                   />
                 </div>
-                <div className="actions__combat">
+                <div>
                   <Link
+                    className="text-xs"
                     to={`${Urls.routes.combat}?score=${
                       player.level + player.bonus
                     }`}
                   >
-                    <img
-                      className="w-9"
-                      src={Swords}
-                      alt={`Enter combat with ${player.name}`}
-                    />
+                    <div className="flex items-center flex-col text-center hover:underline">
+                      <img className="w-9" src={Swords} alt="" />
+                      Enter combat
+                    </div>
                   </Link>
-                  <div className="text-center">
-                    {player.level + player.bonus}
-                  </div>
                 </div>
                 <div className="text-center text-xs">
                   <div className="actions__score">Bonus</div>
@@ -152,6 +149,6 @@ const Game = () => {
       </div>
     </>
   );
-};
+}
 
 export default Game;

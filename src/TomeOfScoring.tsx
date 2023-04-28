@@ -1,5 +1,5 @@
-import GameSelect from "components/core/GameSelect";
 import DiceMiner from "components/dice-miner";
+import GameSelect from "components/GameSelect";
 import Combat from "components/munchkin/Combat";
 import ConfigureGame from "components/munchkin/ConfigureGame";
 import CreatePlayer from "components/munchkin/CreatePlayer";

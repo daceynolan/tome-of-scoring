@@ -19,7 +19,7 @@ type Props = {
   onSave: (player: Partial<Player>) => void;
 };
 
-const PlayerForm = ({ defaultFormData = {}, onSave }: Props) => {
+function PlayerForm({ defaultFormData = {}, onSave }: Props) {
   const [playerData, setPlayerData] = useState<Partial<Player>>({
     name: "",
     avatar: "dragon",
@@ -28,14 +28,14 @@ const PlayerForm = ({ defaultFormData = {}, onSave }: Props) => {
   });
   const [errors, setErrors] = useState<FormErrors>({});
 
-  const updatePlayerData = (field: string, value: string) => {
+  function updatePlayerData(field: string, value: string) {
     setPlayerData({
       ...playerData,
       [field]: value,
     });
-  };
+  }
 
-  const handleSubmit = () => {
+  function handleSubmit() {
     const errors: FormErrors = {};
 
     if (!playerData.name) {
@@ -57,7 +57,7 @@ const PlayerForm = ({ defaultFormData = {}, onSave }: Props) => {
     } else {
       onSave(playerData);
     }
-  };
+  }
 
   return (
     <form>
@@ -100,6 +100,6 @@ const PlayerForm = ({ defaultFormData = {}, onSave }: Props) => {
       </Button>
     </form>
   );
-};
+}
 
 export default PlayerForm;

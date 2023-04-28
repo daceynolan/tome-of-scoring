@@ -8,7 +8,7 @@ type CommonProps = {
   className?: string;
   fluid?: boolean;
   styleReset?: boolean;
-  theme?: "default" | "info";
+  theme?: "default" | "info" | "link" | "ghost";
 };
 
 type LinkProps = RRLinkProps & {

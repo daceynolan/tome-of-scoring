@@ -10,7 +10,7 @@ import Logo from "../Logo";
 //version local storage key to prevent stale data with app changes
 const LOCAL_STORAGE_KEY = "munchkin_v1";
 
-const Munchkin = () => {
+function Munchkin() {
   const localGame = localStorage.getItem(LOCAL_STORAGE_KEY);
   const [players, setPlayers] = useState(
     localGame
@@ -39,6 +39,6 @@ const Munchkin = () => {
       </GameContext.Provider>
     </div>
   );
-};
+}
 
 export default Munchkin;

@@ -5,7 +5,7 @@ type Props = {
   onChange: (sex: Sex) => void;
 };
 
-const SexSelect = ({ value, onChange }: Props) => {
+function SexSelect({ value, onChange }: Props) {
   return (
     <div className="flex justify-around">
       <input
@@ -28,6 +28,6 @@ const SexSelect = ({ value, onChange }: Props) => {
       <label htmlFor="select-female">Female</label>
     </div>
   );
-};
+}
 
 export default SexSelect;
