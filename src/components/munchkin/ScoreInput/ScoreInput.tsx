@@ -1,3 +1,5 @@
+import Text from "components/core/Text/Text";
+
 import Button from "../Button";
 
 type Props = {
@@ -6,9 +8,18 @@ type Props = {
   min?: number;
   onChange(newLevel: number): void;
   onChange(newBonus: number): void;
+  scoreType: "level" | "bonus";
+  player: string;
 };
 
-function ScoreInput({ currentScore, max, min, onChange }: Props) {
+function ScoreInput({
+  currentScore,
+  max,
+  min,
+  onChange,
+  scoreType,
+  player,
+}: Props) {
   function incrementScore() {
     if (max && currentScore >= max) return;
     onChange(currentScore + 1);
@@ -24,18 +35,24 @@ function ScoreInput({ currentScore, max, min, onChange }: Props) {
       <Button
         onClick={decrementScore}
         styleReset
-        aria-label={`Decrement by one`}
+        aria-label={`Decrement ${player}'s ${scoreType} by one`}
         theme="ghost"
       >
         -
       </Button>
-      <div className="p-2 w-16 self-center text-2xl box-border">
+      <Text
+        as="p"
+        size="medium"
+        theme="munchkin-default"
+        className="p-2 w-16 self-center box-border"
+        aria-label={`${player}'s ${scoreType} is currently ${currentScore}`}
+      >
         {currentScore}
-      </div>
+      </Text>
       <Button
         onClick={incrementScore}
         styleReset
-        aria-label={`Increment by one`}
+        aria-label={`Increment ${player}'s ${scoreType} by one`}
         theme="ghost"
       >
         +

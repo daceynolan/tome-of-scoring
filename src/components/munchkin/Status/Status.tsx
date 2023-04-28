@@ -4,12 +4,24 @@ import cx from "classnames";
 import { ComponentPropsWithoutRef } from "react";
 
 type Props = ComponentPropsWithoutRef<"div"> & {
-  theme?: "default" | "warning" | "success";
+  theme: "warning" | "success";
 };
 
-function Status({ className, theme = "default", ...props }: Props) {
+const themeClassMap = {
+  warning: "text-m-treasure-500 bg-m-treasure-100 border-m-treasure-200",
+  success: "text-m-leaf-500 bg-m-leaf-100 border-m-leaf-200",
+};
+
+function Status({ className, theme, ...props }: Props) {
   return (
-    <div className={cx("status", `status--${theme}`, className)} {...props} />
+    <div
+      className={cx(
+        "border-2 rounded-lg text-xs p-2",
+        themeClassMap[theme],
+        className
+      )}
+      {...props}
+    />
   );
 }
 

@@ -21,12 +21,20 @@ module.exports = {
           brick: {
             500: "#b22222",
           },
-          leaf: {},
+          leaf: {
+            100: "#d4edda",
+            200: "#c3e6cb",
+            500: "#155724",
+          },
           mud: {
             300: "#fff4e8",
             500: "#4a1615",
           },
-          treasure: {},
+          treasure: {
+            100: "#fff3cd",
+            200: "#ffeeba",
+            500: "#856404",
+          },
           water: {
             100: "#d1ecf1",
             200: "#bee5eb",

@@ -80,14 +80,28 @@ function Game() {
                 </div>
                 <div className="flex items-center gap-2">
                   {lowestPlayerLevel === player.level && (
-                    <Status theme="warning">Discards</Status>
+                    <Status
+                      theme="warning"
+                      aria-live="assertive"
+                      aria-label={`${player.name} gets all discards`}
+                    >
+                      Discards
+                    </Status>
                   )}
                   {highestPlayerLevel === player.level && (
-                    <Status theme="success">First</Status>
+                    <Status
+                      theme="success"
+                      aria-live="assertive"
+                      aria-label={`${player.name} is currently in first place`}
+                    >
+                      First
+                    </Status>
                   )}
                   <Button
                     className="game-player__sex"
-                    aria-label={`Change ${player.name}'s sex`}
+                    aria-label={`Change ${player.name}'s sex to ${
+                      player.sex === "M" ? "Female" : "Male"
+                    }`}
                     onClick={() =>
                       updatePlayer(
                         player.id,
@@ -113,6 +127,8 @@ function Game() {
                     Level
                   </Text>
                   <ScoreInput
+                    scoreType="level"
+                    player={player.name}
                     min={1}
                     max={99}
                     currentScore={player.level}
@@ -144,6 +160,8 @@ function Game() {
                     Bonus
                   </Text>
                   <ScoreInput
+                    scoreType="bonus"
+                    player={player.name}
                     currentScore={player.bonus}
                     onChange={(newBonus: number) =>
                       updatePlayer(player.id, "bonus", newBonus)

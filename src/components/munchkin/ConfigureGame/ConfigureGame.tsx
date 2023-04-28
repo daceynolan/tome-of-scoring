@@ -54,16 +54,20 @@ function ConfigureGame() {
                 </Text>
               </div>
               <div className="flex">
-                <Link to={reverse(Urls.routes.editPlayer, { id: player.id })}>
-                  <img className="w-9" src={Pencil} alt="Edit player" />
+                <Link
+                  aria-label={`Edit ${player.name}`}
+                  to={reverse(Urls.routes.editPlayer, { id: player.id })}
+                >
+                  <img className="w-9" src={Pencil} alt="" />
                 </Link>
                 {numberOfPlayers > MIN_PLAYERS && (
                   <Button
                     styleReset
                     onClick={() => removePlayer(index)}
                     theme="ghost"
+                    aria-label={`Delete ${player.name}`}
                   >
-                    <img className="w-9" src={Trash} alt="Remove player" />
+                    <img className="w-9" src={Trash} alt="" />
                   </Button>
                 )}
               </div>
