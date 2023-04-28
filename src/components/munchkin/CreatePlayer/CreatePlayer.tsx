@@ -1,3 +1,5 @@
+import Close from "assets/munchkin/close.svg";
+import Text from "components/core/Text/Text";
 import Urls from "constants/Urls";
 import { GameContext } from "contexts/gameContext";
 import { useContext } from "react";
@@ -25,7 +27,9 @@ function CreatePlayer() {
   return (
     <>
       <div className="flex justify-between mb-7 items-center">
-        <h1 className="text-3xl font-semibold text-m-mud-500">Create Player</h1>
+        <Text as="h1" size="large" theme="munchkin-default">
+          Create Player
+        </Text>
         <Button
           as={Link}
           to={Urls.routes.configure}
@@ -33,7 +37,7 @@ function CreatePlayer() {
           theme="ghost"
           aria-label="Cancel"
         >
-          X
+          <img className="w-4" src={Close} alt="" />
         </Button>
       </div>
       <PlayerForm

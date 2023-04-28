@@ -1,4 +1,5 @@
 import Swords from "assets/munchkin/swords.svg";
+import Text from "components/core/Text/Text";
 import Urls from "constants/Urls";
 import { GameContext } from "contexts/gameContext";
 import { useContext, useLayoutEffect, useState } from "react";
@@ -103,7 +104,14 @@ function Game() {
 
               <div className="flex items-center justify-between">
                 <div className="text-center text-xs">
-                  <div className="actions__score">Level</div>
+                  <Text
+                    as="p"
+                    theme="munchkin-default"
+                    size="xs"
+                    className="font-normal"
+                  >
+                    Level
+                  </Text>
                   <ScoreInput
                     min={1}
                     max={99}
@@ -127,7 +135,14 @@ function Game() {
                   </Link>
                 </div>
                 <div className="text-center text-xs">
-                  <div className="actions__score">Bonus</div>
+                  <Text
+                    as="p"
+                    theme="munchkin-default"
+                    size="small"
+                    className="font-normal"
+                  >
+                    Bonus
+                  </Text>
                   <ScoreInput
                     currentScore={player.bonus}
                     onChange={(newBonus: number) =>
@@ -141,11 +156,15 @@ function Game() {
         ))}
       </div>
       <div className="flex justify-between mt-7">
-        <Button as={Link} to={Urls.routes.configure}>
+        <Button as={Link} to={Urls.routes.configure} type="button">
           &lt;
         </Button>
-        <Button onClick={rematchGame}>Rematch</Button>
-        <Button onClick={resetGame}>End Game</Button>
+        <Button onClick={rematchGame} type="button">
+          Rematch
+        </Button>
+        <Button onClick={resetGame} type="button">
+          End Game
+        </Button>
       </div>
     </>
   );

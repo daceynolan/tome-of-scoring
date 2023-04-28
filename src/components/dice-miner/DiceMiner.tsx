@@ -7,7 +7,7 @@ import { FormattedMessage } from "react-intl";
 import Button from "./Button";
 import ScoringInputs from "./ScoringInputs";
 import ScoringLabels from "./ScoringLabels";
-import Text from "./Text";
+import Text from "../core/Text/Text";
 import { MinerContextType, Player, PlayerKeys } from "./types";
 
 // version local storage key to prevent stale data with app changes
@@ -150,7 +150,7 @@ export default function DiceMiner() {
                 <Text as="h1" size="large">
                   Dice Miner
                 </Text>
-                <Text className="capitalize" theme="light" as="h2">
+                <Text className="capitalize" theme="dm-light" as="h2">
                   <FormattedMessage
                     id="dice-miner__subheading"
                     defaultMessage="Multi-player Score Sheet"

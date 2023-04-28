@@ -43,8 +43,8 @@ function Button(
     return <Link className={buildClasses(props)} {...rest} />;
   }
   if (props.as === "button" || props.as === undefined) {
-    const { type, className, theme, styleReset, fluid, ...rest } = props;
-    return <button className={buildClasses(props)} type={type} {...rest} />;
+    const { className, theme, styleReset, fluid, ...rest } = props;
+    return <button className={buildClasses(props)} {...rest} />;
   }
 }
 

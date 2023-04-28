@@ -1,3 +1,5 @@
+import Close from "assets/munchkin/close.svg";
+import Text from "components/core/Text/Text";
 import Urls from "constants/Urls";
 import { GameContext } from "contexts/gameContext";
 import { useContext } from "react";
@@ -28,7 +30,9 @@ function EditPlayer() {
   return (
     <>
       <div className="edit-player__heading flex justify-between mb-7 items-center">
-        <h1 className="text-3xl font-semibold text-m-mud-500">Edit Player</h1>
+        <Text as="h1" size="large" theme="munchkin-default">
+          Edit Player
+        </Text>
         <Button
           as={Link}
           to={Urls.routes.configure}
@@ -36,7 +40,7 @@ function EditPlayer() {
           theme="ghost"
           aria-label="Cancel"
         >
-          X
+          <img className="w-4" src={Close} alt="" />
         </Button>
       </div>
 

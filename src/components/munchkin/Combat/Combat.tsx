@@ -1,4 +1,5 @@
 import Swords from "assets/munchkin/swords.svg";
+import Text from "components/core/Text/Text";
 import Urls from "constants/Urls";
 import queryString from "query-string";
 import { useState } from "react";
@@ -17,13 +18,15 @@ function Combat() {
   return (
     <div className="w-full max-w-md">
       <div className="mb-7 flex items-center justify-center">
-        <h1 className="text-3xl font-semibold text-m-mud-500">Combat</h1>
+        <Text as="h1" size="large" theme="munchkin-default">
+          Combat
+        </Text>
         <img className="w-10 m-2" src={Swords} alt="" />
       </div>
       <div className="mb-8">
-        <div className="text-m-mud-500 text-2xl mb-2">
+        <Text theme="munchkin-default" size="medium" className="mb-2">
           Munchkin(s): <span>{munchkinScore}</span>
-        </div>
+        </Text>
         <CombatScoreInput
           combatant="munchkin"
           onAdjustmentClick={(adjustment) =>
@@ -32,9 +35,9 @@ function Combat() {
         />
       </div>
       <div className="mb-8">
-        <div className="text-m-mud-500 text-2xl mb-2">
+        <Text theme="munchkin-default" size="medium" className="mb-2">
           Monster(s): <span>{monsterScore}</span>
-        </div>
+        </Text>
         <CombatScoreInput
           combatant="monster"
           onAdjustmentClick={(adjustment) =>

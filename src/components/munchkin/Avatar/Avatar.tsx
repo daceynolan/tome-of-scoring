@@ -19,7 +19,7 @@ function Avatar({ id, className }: Props) {
         className
       )}
       src={avatar.src}
-      alt={avatar.alt}
+      alt=""
     />
   );
 }

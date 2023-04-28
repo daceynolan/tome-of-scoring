@@ -1,5 +1,7 @@
 import { Sex } from "types/munchkin/types";
 
+import Label from "../Label/Label";
+
 type Props = {
   value?: Sex;
   onChange: (sex: Sex) => void;
@@ -7,7 +9,8 @@ type Props = {
 
 function SexSelect({ value, onChange }: Props) {
   return (
-    <div className="flex justify-around">
+    <fieldset className="flex justify-around" role="radiogroup">
+      <legend className="text-m-mud-500 mb-2">Player's Sex</legend>
       <input
         checked={value === "M"}
         type="radio"
@@ -16,7 +19,7 @@ function SexSelect({ value, onChange }: Props) {
         onChange={() => onChange("M")}
         id="select-male"
       />
-      <label htmlFor="select-male">Male</label>
+      <Label htmlFor="select-male">Male</Label>
       <input
         checked={value === "F"}
         type="radio"
@@ -25,8 +28,8 @@ function SexSelect({ value, onChange }: Props) {
         onChange={() => onChange("F")}
         id="select-female"
       />
-      <label htmlFor="select-female">Female</label>
-    </div>
+      <Label htmlFor="select-female">Female</Label>
+    </fieldset>
   );
 }
 

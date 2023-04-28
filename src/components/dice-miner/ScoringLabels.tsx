@@ -4,8 +4,8 @@ import HazardIcon from "assets/dice_miner/hazard_icon.png";
 import classNames from "classnames";
 import { FormattedMessage } from "react-intl";
 
+import Text from "../core/Text/Text";
 import Cell from "./Cell";
-import Text from "./Text";
 
 type Props = {
   round: 1 | 2 | 3;
@@ -34,7 +34,7 @@ export default function ScoringLabels({ round }: Props) {
       )}
       <div className="row-span-3 relative" style={{ height: 144 }}>
         <Text
-          theme="light"
+          theme="dm-light"
           className="absolute -rotate-90 left-1/2 -translate-x-1/2 whitespace-nowrap top-1/2 -translate-y-1/2"
         >
           <FormattedMessage id="dice-miner__round" defaultMessage="Round" />{" "}
@@ -51,13 +51,13 @@ export default function ScoringLabels({ round }: Props) {
         <img className="w-12" src={HazardIcon} alt="" />
       </Cell>
       <Cell className="col-span-2 justify-center items-center flex">
-        <Text theme="light">
+        <Text theme="dm-light">
           <FormattedMessage id="dice-miner__total" defaultMessage="Total" />
         </Text>
       </Cell>
       {round === 2 && (
         <Cell className="bg-dm-aquamarine-300 col-span-2 flex items-center justify-center">
-          <Text theme="light">1 + 2</Text>
+          <Text theme="dm-light">1 + 2</Text>
         </Cell>
       )}
       {round === 3 && (

@@ -1,5 +1,6 @@
 import Pencil from "assets/munchkin/pencil.svg";
 import Trash from "assets/munchkin/trash.svg";
+import Text from "components/core/Text/Text";
 import Urls from "constants/Urls";
 import { GameContext } from "contexts/gameContext";
 import { reverse } from "named-urls";
@@ -34,25 +35,34 @@ function ConfigureGame() {
 
   return (
     <div className="flex flex-col">
-      <div className="configure-game__players">
+      <div>
         {players.map((player, index) => {
           return (
             <div
-              className="player flex justify-between items-center mb-6"
+              className="flex justify-between items-center mb-6"
               key={player.id}
             >
               <div className="flex items-center">
                 <Avatar id={player.avatar} />
-                <div className="text-2xl pl-2.5 whitespace-nowrap">
+                <Text
+                  as="p"
+                  className="pl-2.5 whitespace-nowrap"
+                  size="medium"
+                  theme="munchkin-default"
+                >
                   {player.name || "Player's Name"}
-                </div>
+                </Text>
               </div>
               <div className="flex">
                 <Link to={reverse(Urls.routes.editPlayer, { id: player.id })}>
                   <img className="w-9" src={Pencil} alt="Edit player" />
                 </Link>
                 {numberOfPlayers > MIN_PLAYERS && (
-                  <Button styleReset onClick={() => removePlayer(index)}>
+                  <Button
+                    styleReset
+                    onClick={() => removePlayer(index)}
+                    theme="ghost"
+                  >
                     <img className="w-9" src={Trash} alt="Remove player" />
                   </Button>
                 )}
@@ -66,6 +76,7 @@ function ConfigureGame() {
         {numberOfPlayers < MAX_PLAYERS && (
           <Button
             as={Link}
+            aria-label="Add a player"
             to={Urls.routes.CreatePlayer}
             styleReset
             theme="link"

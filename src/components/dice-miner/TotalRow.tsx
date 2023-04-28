@@ -1,9 +1,9 @@
 import sum from "lodash/sum";
 import { useContext } from "react";
 
+import Text from "../core/Text/Text";
 import BaseRow from "./BaseRow";
 import { MinerContext } from "./DiceMiner";
-import Text from "./Text";
 import { PlayerKeys } from "./types";
 
 type Props = {

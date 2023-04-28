@@ -12,7 +12,8 @@ type Props = {
 
 function AvatarPicker({ value, onChange }: Props) {
   return (
-    <div className="flex gap-2 justify-center">
+    <fieldset className="flex gap-2 justify-center">
+      <legend className="text-m-mud-500 mb-2"> Avatar</legend>
       {MUNCHKIN_AVATAR_LIST.map((avatar) => (
         <div key={avatar.id}>
           <input
@@ -22,10 +23,14 @@ function AvatarPicker({ value, onChange }: Props) {
             name="avatar"
             onChange={() => onChange(avatar.id)}
             id={avatar.id}
-            aria-label={`Change user's avatar to a ${avatar.id}`}
+            // aria-label={`Change user's avatar to a ${avatar.id}`}
             className="sr-only"
           />
-          <label htmlFor={avatar.id} className="avatar-picker__label">
+          <label
+            htmlFor={avatar.id}
+            className="avatar-picker__label"
+            aria-label={avatar.alt}
+          >
             <Avatar
               id={avatar.id}
               className="cursor-pointer border-2 border-transparent"
@@ -33,7 +38,7 @@ function AvatarPicker({ value, onChange }: Props) {
           </label>
         </div>
       ))}
-    </div>
+    </fieldset>
   );
 }
 export default AvatarPicker;

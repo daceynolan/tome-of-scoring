@@ -9,7 +9,7 @@ function Card({ children }: ComponentPropsWithoutRef<"div">) {
       className="rounded-3xl bg-m-mud-500 mt-6 p-2.5 w-full"
       size="small"
     >
-      <div className="card__inner bg-m-mud-300 p-4">{children}</div>
+      <div className="card__inner bg-m-mud-300 py-6 px-4">{children}</div>
     </Container>
   );
 }

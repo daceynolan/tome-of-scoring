@@ -62,8 +62,9 @@ function PlayerForm({ defaultFormData = {}, onSave }: Props) {
   return (
     <form>
       <div className="text-xl mb-7">
-        <Label>Player's Name</Label>
+        <Label htmlFor="name">Player's Name</Label>
         <Input
+          id="name"
           onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
             updatePlayerData("name", event.target.value)
           }
@@ -73,7 +74,6 @@ function PlayerForm({ defaultFormData = {}, onSave }: Props) {
         {errors.name && <FormError>{errors.name}</FormError>}
       </div>
       <div className="text-xl mb-7">
-        <Label>Player's Sex</Label>
         <SexSelect
           value={playerData.sex}
           onChange={(newSex) => updatePlayerData("sex", newSex)}
@@ -82,7 +82,6 @@ function PlayerForm({ defaultFormData = {}, onSave }: Props) {
       </div>
 
       <div className="text-xl mb-7">
-        <Label>Avatar</Label>
         <AvatarPicker
           value={playerData.avatar || "dragon"}
           onChange={(newAvatar) => updatePlayerData("avatar", newAvatar)}
@@ -92,7 +91,8 @@ function PlayerForm({ defaultFormData = {}, onSave }: Props) {
       <Button
         fluid
         type="submit"
-        onClick={() => {
+        onClick={(e) => {
+          e.preventDefault();
           handleSubmit();
         }}
       >
